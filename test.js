@@ -163,6 +163,7 @@ document.body.appendChild(versionContainer);
   const config = {
     autoPlay: true,
     greenColor: [208, 216, 0],
+    orangeColor: [219, 124, 58],
     tolerance: 5,
     playButtonSelector: "button.is-primary, .play-btn",
     canvasSelector: "canvas",
@@ -198,6 +199,9 @@ document.body.appendChild(versionContainer);
         const [r, g, b] = [pixels[index], pixels[index + 1], pixels[index + 2]];
 
         if (isInGreenRange(r, g, b, config.greenColor, config.tolerance)) {
+          simulateClick(canvas, x, y);
+        }
+		if (isInGreenRange(r, g, b, config.orangeColor, config.tolerance)) {
           simulateClick(canvas, x, y);
         }
       }
