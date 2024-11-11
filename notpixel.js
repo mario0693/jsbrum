@@ -1,11 +1,11 @@
 // ==UserScript==
-// @name         Auto Blum
+// @name         Auto NotPixel
 // @namespace    http://tampermonkey.net/
 // @version      16-10-2024
 // @description  Đã sợ thì đừng dùng, đã dùng thì đừng sợ!
 // @author       caobang
-// @match        https://telegram.blum.codes/*
-// @icon         https://cdn.prod.website-files.com/65b6a1a4a0e2af577bccce96/65ba99c1616e21b24009b86c_blum-256.png
+// @match        https://app.notpx.app/*
+// @icon         https://freecoins24.io/wp-content/uploads/2024/09/notpixel-telegram-airdrop-logo.jpg
 // @grant        none
 // ==/UserScript==
 
@@ -161,8 +161,9 @@ document.body.appendChild(versionContainer);
   window.BlumAC = true;
 
   const config = {
-    autoPlay: false,
+    autoPlay: true,
     greenColor: [208, 216, 0],
+    orangeColor: [219, 124, 58],
     tolerance: 5,
     playButtonSelector: "button.is-primary, .play-btn",
     canvasSelector: "canvas",
@@ -170,7 +171,7 @@ document.body.appendChild(versionContainer);
     objectCheckInterval: 100,
     excludedArea: { top: 70 }
   };
-
+	
   // Tự động nhấn nút "Play"
   if (config.autoPlay) {
     setInterval(() => {
@@ -198,6 +199,9 @@ document.body.appendChild(versionContainer);
         const [r, g, b] = [pixels[index], pixels[index + 1], pixels[index + 2]];
 
         if (isInGreenRange(r, g, b, config.greenColor, config.tolerance)) {
+          simulateClick(canvas, x, y);
+        }
+		if (isInGreenRange(r, g, b, config.orangeColor, config.tolerance)) {
           simulateClick(canvas, x, y);
         }
       }
