@@ -102,7 +102,7 @@ let interval1;
 let interval2;
 let clickCount1 = 0;
 let clickCount2 = 0;
-
+let isGamePaused = true
 function toggleGamePause() {
     isGamePaused = !isGamePaused;
     pauseButton.textContent = isGamePaused ? '▶' : '❚❚';
@@ -111,8 +111,9 @@ function toggleGamePause() {
         clearInterval(interval1);
         clearInterval(interval2);
     } else {
+		console.log("isGamePaused" +isGamePaused)
         interval1 = setInterval(() => {
-            const button1 = document.querySelector('#app > div > div > div.pages-index-drop.drop-zone > div > a');
+            const button1 = document.querySelector('button.is-primary');
             if (button1) {
                 button1.click();
                 clickCount1 = 0;
@@ -125,7 +126,7 @@ function toggleGamePause() {
         }, 5000);
 
         interval2 = setInterval(() => {
-            const button2 = document.querySelector('#app > div > div > div.buttons > button:nth-child(2)');
+            const button2 = document.querySelector('.play-btn');
             if (button2) {
                 button2.click();
                 clickCount2 = 0;
