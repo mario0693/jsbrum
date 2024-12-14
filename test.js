@@ -163,9 +163,11 @@ document.body.appendChild(versionContainer);
 
   const config = {
     autoPlay: false,
+    autorePlay: true,
     greenColor: [208, 216, 0],
     tolerance: 5,
-    playButtonSelector: "button.is-primary, .play-btn",
+    playButtonSelector: ".play-btn",
+	replayButtonSelector: "button.is-primary",
     canvasSelector: "canvas",
     playCheckInterval: 5000,
     objectCheckInterval: 100,
@@ -176,6 +178,14 @@ document.body.appendChild(versionContainer);
   if (config.autoPlay) {
     setInterval(() => {
       const playButton = document.querySelector(config.playButtonSelector);
+      if (playButton && playButton.textContent.toLowerCase().includes("play")) {
+        playButton.click();
+      }
+    }, config.playCheckInterval);
+  }
+  if (config.autorePlay) {
+    setInterval(() => {
+      const playButton = document.querySelector(config.replayButtonSelector);
       if (playButton && playButton.textContent.toLowerCase().includes("play")) {
         playButton.click();
       }
