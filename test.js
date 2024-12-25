@@ -166,7 +166,7 @@ document.body.appendChild(versionContainer);
     autorePlay: true,
     greenColor: [208, 216, 0],
 	Color1: [194, 20, 139],
-	Color2: [211, 6, 156],
+	Color2: [255, 255, 255],
 	Color3: [254, 137, 0],
 	Color4: [217, 216, 0],
     tolerance: 5,
