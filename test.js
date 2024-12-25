@@ -224,6 +224,9 @@ document.body.appendChild(versionContainer);
 		if (isInGreenRange(r, g, b, config.Color3, config.tolerance)) {
           simulateClick(canvas, x, y);
         }
+		if (isInGreenRange(r, g, b, config.Color4, config.tolerance)) {
+          simulateClick(canvas, x, y);
+        }
       }
     }
   }
