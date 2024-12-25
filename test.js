@@ -165,6 +165,10 @@ document.body.appendChild(versionContainer);
     autoPlay: false,
     autorePlay: true,
     greenColor: [208, 216, 0],
+	Color1: [194, 20, 139],
+	Color2: [255, 255, 255],
+	Color3: [254, 137, 0],
+	Color4: [217, 216, 0],
     tolerance: 5,
     playButtonSelector: ".play-btn",
 	replayButtonSelector: "button.is-primary",
@@ -209,6 +213,15 @@ document.body.appendChild(versionContainer);
         const [r, g, b] = [pixels[index], pixels[index + 1], pixels[index + 2]];
 
         if (isInGreenRange(r, g, b, config.greenColor, config.tolerance)) {
+          simulateClick(canvas, x, y);
+        }
+		if (isInGreenRange(r, g, b, config.Color1, config.tolerance)) {
+          simulateClick(canvas, x, y);
+        }
+		if (isInGreenRange(r, g, b, config.Color2, config.tolerance)) {
+          simulateClick(canvas, x, y);
+        }
+		if (isInGreenRange(r, g, b, config.Color3, config.tolerance)) {
           simulateClick(canvas, x, y);
         }
       }
